@@ -1,0 +1,11 @@
+세 가지 종류의 데이터베이스
+
+Difference between DATA vs information 
+Data : raw facts , no context, just numbers and text 
+Information : processed data, data with context , value-added data
+
+정형("DB") vs 비정형데이터
+
+DB를 수정하는 프로그램 DBMS -> Analytics/ BI 
+
+RDB - 관계형 데이터베이스에 집중/ DB의 확장이 어려워서 NO-sql 문제가 발생한는데
