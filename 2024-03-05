@@ -9,3 +9,30 @@ Information : processed data, data with context , value-added data
 DB를 수정하는 프로그램 DBMS -> Analytics/ BI 
 
 RDB - 관계형 데이터베이스에 집중/ DB의 확장이 어려워서 NO-sql 문제가 발생한는데
+
+데이터베이스의 조건 
+1) 통합 - 최소한의 중복 또는 통제된 중복 만 허2) 저장 - 컴퓨터로 접근 가능한 물리적 저장 매체 저장 3) 공유 4) 운영
+
+
+RDBMS에서 SQLITE를 사용
+
+Attribute 를 구성할때 발생되는 문제
+no sql쓰는 이유 -> 확장성
+
+
+SQL 구문 - Statement, Clause, Expression, Predicate 
+
+Data Type 
+1. Boolean - True or False 
+2. Character (Char, VARCHAR) - 고정길이 비고정길이 
+- Torepresent charater data for columns such as names of persons or cities.
+3. Exact numeric
+
+
+
+
+
+
+
+
+
