@@ -1,0 +1,863 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMlRxw7qBXpE0YghfZm0YnH",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/HeyHooooooo/SW-/blob/main/2024-03-06%20%ED%8C%8C%EC%9D%B4%EC%8D%AC2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "[Don't reinvent the wheel]\n",
+        "# 재사용 > declaration / definition\n",
+        "- 함수\n",
+        "- 클래스\n",
+        "\n",
+        "파이썬은 함수 관련해서 두 가지 사용법이 존재하는데\n",
+        "Argument(인자) - 사용\n",
+        "Parameter(매개변수) - 정의\n",
+        "\n",
+        "def x(a):\n",
+        "  print(a)\n",
+        "\n",
+        "위의 a를 parameter 이라고 하며\n",
+        "\n",
+        "x(3)를 argument 라고 한다.\n",
+        "\n",
+        "기본적으로 파라미터 수와 argument의 수가 일치 해야한다.\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "GmxXwzXCsTWh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def x(a):\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "qRQV6u_2uSC1"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x() ## positional argument 부족\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "JoPGuMN6ucTR",
+        "outputId": "5698b040-d7ec-4b4e-ab7c-c613335c10ed"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "x() missing 1 required positional argument: 'a'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-3-08f9d0828de0>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mx\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: x() missing 1 required positional argument: 'a'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def xx(a,b):\n",
+        "  print(a+2*b)"
+      ],
+      "metadata": {
+        "id": "Tb7VbDCCuhmj"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xx(2,3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "v7w3Q3thul-T",
+        "outputId": "c485f248-8083-4c46-c72a-32cce7fc1ce8"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xx(a=2, b=3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oaHL1KRvunCi",
+        "outputId": "6a472b64-e353-446a-d1a1-c5e67d039d03"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "##기본은 positional 방식이지만 keyword 방식은 순서와 상관없이 쓸 수있다."
+      ],
+      "metadata": {
+        "id": "VjbRBV3guvFb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xx(b=2, a=3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NsqngqBsu4Dc",
+        "outputId": "f3ddf84d-827e-44de-df1a-eaef034b6d16"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "## python에는 기본적으로 function overloading을 지원하지 않는 대신에, keyword 방식을 지원한다."
+      ],
+      "metadata": {
+        "id": "jSjnGwsuu8vD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def xxx(a,b=3):\n",
+        "  print(a,2*3)"
+      ],
+      "metadata": {
+        "id": "DVaUvfAAvQ8M"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xxx(3)\n",
+        "\n",
+        "xxx(3,4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3HWib8Hrvn90",
+        "outputId": "16091ca7-fc07-4929-f7be-8f72f2992628"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3 9\n",
+            "3 12\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def xxx(a=3,b):\n",
+        "  print(a,b*3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 109
+        },
+        "id": "AshJzKIXvqi3",
+        "outputId": "0f60ff7b-fe98-48c7-8331-0d74a0f40be5"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "non-default argument follows default argument (<ipython-input-12-ebba3aece6aa>, line 1)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-12-ebba3aece6aa>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    def xxx(a=3,b):\u001b[0m\n\u001b[0m                ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m non-default argument follows default argument\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def xxxx(a,b=1, c=2, d=3):\n",
+        "    print(a,b*3)"
+      ],
+      "metadata": {
+        "id": "Qo35VsMov-B5"
+      },
+      "execution_count": 13,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xxxx(1,1,2,4) #positional 방식은 무조건 다 사용"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TPcwpO3RwEeB",
+        "outputId": "23a19927-886c-4bdf-e310-d3f602aca5ee"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xxxx(a =1, d=4)\n",
+        "\n",
+        "xxxx(1, d=4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mdPyOLPIwKqa",
+        "outputId": "a721ad9b-f8e9-4221-9492-023057859b78"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 3\n",
+            "1 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def y(a,/,b):\n",
+        "  print(a,b)"
+      ],
+      "metadata": {
+        "id": "2BwlMmkwwU-O"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def z(a, *,b):\n",
+        "  print(a,b)"
+      ],
+      "metadata": {
+        "id": "hbPx_kHPxAAA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "unpacking 할때 *"
+      ],
+      "metadata": {
+        "id": "vL2Aop9JxFTu"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "z(1,2)"
+      ],
+      "metadata": {
+        "id": "y2jlSDm8xTAh"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "z(1,)"
+      ],
+      "metadata": {
+        "id": "CbtNfhErxUqs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y(1,3)"
+      ],
+      "metadata": {
+        "id": "wBfA8wF4weL3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y(a=1, b=3)"
+      ],
+      "metadata": {
+        "id": "9e8W7qgJwgit"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y(1,b=3)"
+      ],
+      "metadata": {
+        "id": "xg02ZMXFwpXE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "len(obj[1,2,3])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "CwCtrUMNwsSj",
+        "outputId": "096ed523-71ec-41dd-bfb6-8824983161fc"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'obj' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-16-dd2c81cb66a8>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mobj\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m3\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'obj' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt"
+      ],
+      "metadata": {
+        "id": "FMO7Y9K3w0pU"
+      },
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.hist([1,1,2,2,3,])"
+      ],
+      "metadata": {
+        "id": "LHOylKmexlEG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def zz(*a): # 가변 포지서녈 방\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "VIw11lWWyIfe"
+      },
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def zzz(**a): # 가변 키워드 방식\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "oBR3g5HKy4Cs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "zz()\n",
+        "\n",
+        "zz(1)\n",
+        "\n",
+        "zz(1,2,3)\n",
+        ""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Kszw3i-myWhD",
+        "outputId": "eb39f093-f4f8-4b20-9f51-dd3c15614bc3"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "()\n",
+            "(1,)\n",
+            "(1, 2, 3)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "zz(a=1)"
+      ],
+      "metadata": {
+        "id": "2fRzZWhAyhUB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "zzz()\n",
+        "\n",
+        "zzz(a=1)"
+      ],
+      "metadata": {
+        "id": "u1FAU05pyxo0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "int(self, |, *args, **kwargs)\n",
+        "\n",
+        "int([x]) -> integer"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 109
+        },
+        "id": "Aqtol7r2zZCp",
+        "outputId": "44dc1427-201c-4f29-8c2f-d932f288c8cb"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "positional argument follows keyword argument (<ipython-input-23-349335fc6935>, line 1)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-23-349335fc6935>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    xxxx(1,b=2,3,4)\u001b[0m\n\u001b[0m                  ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m positional argument follows keyword argument\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def t(*a):\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "K3W9i8_L1qDq"
+      },
+      "execution_count": 24,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xx = [1,2,3,4]"
+      ],
+      "metadata": {
+        "id": "OTYUtgW41x8U"
+      },
+      "execution_count": 26,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "t(xx)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gTUqgBDu1uVw",
+        "outputId": "955e124a-6d94-4475-873d-789d058dc1bf"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "([1, 2, 3, 4],)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "t(*xx) # Unpacking - Argument에 쓰는 *는 unpacking이다"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "4z38Td_I12jy",
+        "outputId": "938a859e-8fee-457a-d8dc-97e741b54826"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "t() takes 0 positional arguments but 4 were given",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-35-2a74ba0c89bf>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mxx\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;31m# Unpacking - Argument에 쓰는 *는 unpacking이다\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: t() takes 0 positional arguments but 4 were given"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def t(**a):\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "Yz7NeDVw15te"
+      },
+      "execution_count": 36,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tt(**xxx)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "1m5oVK7W2UUE",
+        "outputId": "12cd5908-8229-405b-9646-367f669ed5d8"
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'tt' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-37-c515670bb2ed>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mtt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m**\u001b[0m\u001b[0mxxx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'tt' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xxx = {'a':1, 'b':2}"
+      ],
+      "metadata": {
+        "id": "HSB_bFr62KoS"
+      },
+      "execution_count": 38,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def t(*a):\n",
+        "  print(a)"
+      ],
+      "metadata": {
+        "id": "saF-RrXK2RJH"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "t(*xxx)"
+      ],
+      "metadata": {
+        "id": "caJ2Nr9Z2pe1"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = {'a':1, 'b':2}\n",
+        "c = {'a :3, 'c':4}"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 109
+        },
+        "id": "1t2BqfF02rmV",
+        "outputId": "dafffb16-ab8d-4317-964f-b1b18a4cc3a7"
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "unterminated string literal (detected at line 2) (<ipython-input-42-83eee7ceb54a>, line 2)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-42-83eee7ceb54a>\"\u001b[0;36m, line \u001b[0;32m2\u001b[0m\n\u001b[0;31m    c = {'a :3, 'c':4}\u001b[0m\n\u001b[0m                  ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m unterminated string literal (detected at line 2)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "{**a, **c}"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "z98cM6Og237m",
+        "outputId": "d073f99b-0637-49e5-a51f-53345cc7af79"
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'a' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-40-6207e798ba9c>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;34m{\u001b[0m\u001b[0;34m**\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mc\u001b[0m\u001b[0;34m}\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'a' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "## 무작위 문자열은 '변수'라고 부를 수 없으며 identifier, 식별자라고 말해야함\n",
+        "\n",
+        "가령\n",
+        "\n",
+        "출력하다 = print\n",
+        "\n",
+        "출력하다('ㅁㅁㅁㅁㅁ')"
+      ],
+      "metadata": {
+        "id": "dNqVuh8T3BUc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "aa__name__"
+      ],
+      "metadata": {
+        "id": "_LvncW-v3h_w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print = 1"
+      ],
+      "metadata": {
+        "id": "5SXME6iW3oZi"
+      },
+      "execution_count": 43,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "x------------- 파이썬의 함수는 x뿐이다.\n",
+        "x() <------ return\n",
+        "x(a)\n",
+        "x(3)\n",
+        "\n",
+        "\n",
+        "()는 callable"
+      ],
+      "metadata": {
+        "id": "l4EGkLSH4GNG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 145
+        },
+        "id": "bo6_SQRZ4STc",
+        "outputId": "ab2ccb84-af1a-457a-e419-3cc69f260a91"
+      },
+      "execution_count": 45,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "x() missing 1 required positional argument: 'a'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-45-08f9d0828de0>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mx\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: x() missing 1 required positional argument: 'a'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "wPEtom-8yVQw"
+      }
+    }
+  ]
+}
